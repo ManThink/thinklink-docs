@@ -1,0 +1,59 @@
+ThinkLink 的升级分为网关的升级和设备的升级两部分内容，都是升级门思科技的网关和设备。其中网关的升级固件由门思科技来管理，用户可以选择升级到哪个版本的固件。设备的固件是基于EB的固件，门思科技的DTU和传感器都是基于EB的代码，可进行升级，EB的编码方式参考 [[CN] AN-25100101 EB compiler SDK使用说明](https://mensikeji.yuque.com/staff-zesscp/gqdw7f/trz8i5b7iddrug10?singleDoc#) 
+
+编译完成后，生成尾缀为obin的文件，为设备的升级固件。
+
+## 网关升级
+固件查看在 <font style="background-color:#E7E9E8;">运维管理->升级->网关固件</font> 看查看网关的具体版本号和相关升级内容。
+
+在 <font style="background-color:#E7E9E8;">运维管理->网关管理->更多->升级</font>  选择对应要升级的固件，点击发送后可对网关进行升级。
+
+<!-- 这是一张图片，ocr 内容为：THINKLINK TIKL DEMO ADMIN 首页 网关管理 仪表板 升级 重量 名称: 查询 请输入 展开 GW-EUI 目应用数据 5A53012501030011 网络数据 请选择升级的固件 CIN 新培 图运维管理 A-U-A-A-0.0.0-12.0.0-3.2.01(3.01) 操作 硬件版本 态 ENABLE 口设备管理 取消 发送 王线 更多 编辑 24405920414961669 TRUE 网关管理 在线 编辑更多 TRUE 5A53012501030011 22706818073497605 5A53012501030011 MANTHINK BACNET 蹈仪表板管理 -->
+![](./assets/1760872859613-fc5ac30c-6699-485e-80db-499c3035b3a9.png)
+
+## 设备升级
+> 注意：设备升级功能仅适用于搭载 EB 虚拟机的设备。请确保将 MT-EB 的物模型正确挂载至对应设备，否则在升级过程中可能因无法查询到必要的参数值而导致升级失败。
+>
+
+在执行设备升级前，请务必检查设备的共享属性参数。建议在加载模板时预先设置以下默认参数值，或通过调用 **[MT APP] get app paras RPC ** 接口获取实际运行时的参数值。
+
+需配置的默认参数如下：
+
+- [x] **class_mode**：必须与设备实际工作模式一致（ClassA 或 ClassC）。如不确定，可触发一次上行数据包，系统将自动更新该值
+- [x] **SwVersion**：应与 EB 固件版本保持一致，推荐使用**[MT APP] get app paras RPC ** 获取准确值
+- [x] **swSF**：默认为 `7`（用于调试模式），需与实际配置一致，或通过**[MT CF] get sw para ** 获取
+- [x] **swBW**：默认为 `500kHz`（用于调试模式），或通过**[MT CF] get sw para ** 获取实际值
+- [x] **swFreq**：低频段默认为 `477300000Hz`，高频段默认为 `923300000Hz`（用于调试模式），也可通过**[MT CF] get sw para ** 获取
+- [x] **swPeriod**：默认为 `8000ms`（用于调试模式），或通过**[MT CF] get sw para** 获取
+
+> 建议在生产环境中谨慎使用调试相关参数，并优先通过 RPC 接口动态获取真实值以确保升级成功。
+>
+
+### 导入固件
+将使用EB compiler编译好的obin文件，按 <font style="background-color:#E7E9E8;">运维管理->升级->设备固件->新增</font> 可以导入到TKL 平台中。
+
+> 如果使用ThinkLink自带的编译器，点击固件保存，可将云编译生成的固件直接保存在设备固件里表中。
+>
+
+<!-- 这是一张图片，ocr 内容为：TIKL THINKLINK DEMO ADMIN 首页 升级 仪表板 X 设备固件新增 设备固件 设备升级任务 网关固件 名称 应用数据 诗输入 网络数据 重五 请输入 名称: 查询 备注 @运维管理 诘输入 见设备管理 守工 C 新增 品网关管理 固件 操作 名称 来源 BACNET 下载固件 自定义 ZMF EXAMPLE 绍仪表板管理 下载固件 TEST_DELETE 自定义 CLICK OR DRAG FILE TO THIS AREA TO UPLOAD 升级 SUPPORT FOR A SINGLE .OBIN FILE UPLOAD 下载固件 OM422 TEST 自定义 园 模型管理 下载固件 XKWTEST 自定义 取消 确定 系统管理 -->
+![](./assets/1760873207727-e0bfcab1-fc8c-4851-8f33-f3c22b7c1ba6.png)
+
+### 升级设备
+<font style="background-color:#E7E9E8;">运维管理->升级->设备升级任务->新建任务</font> ，需要给升级任务起一个名字，选择对应升级的固件。通过EUI和名称可以对需要升级的设备进行筛选，筛选后通过左侧的勾选框可以多选需要升级的设备。点击确定后即建立升级任务开始升级。
+
+> 注意1 ：ClassA 设备的升级需要设备有一包数据上行才能触发升级过程。
+>
+> 注意2 ：Debug 模式开启，是使用EB的SW模式触发一包数据上行，对于ClassA的设备，开启debug模式后，不需要再通过磁铁或者其他方式触发一包数据，可直接进行升级。但是默认的sw参数采用高速信道SF=7，BW=500kHz，其通信距离有限，不适合在规模化部署时使用。使用debug模式时，需要确保共享属性中的sw参数与实际设备的参数保持一致。如不清楚sw参数，可通过[MT CF] get sw para 的RPC获取到设备的实际sw参数。
+>
+
+<!-- 这是一张图片，ocr 内容为：TIKL THINKLINK 新建任务 金首页 升级 高级配置 名称 固件 DEBUG 仪表板 CJ188_V23(35386000809136133) 测试 网关固件 目应用数据 固件参数 网络数据 目标设备 @运维管理 设备管理 名称: 展开 重量 查询 请输入 请输入 EUI: 品网关管理 BACNET 状态 名称 物模型 EUI 标签 蹈仪表板管理 离线 1231231 1231231 DEFAULT 双升级 ARCHI SPOT 120 离线 MANTHINK,DTU MT-DTU-EMETER S00018BCD485C085 EB编译 6353012AF1090468 MANTHINK,DTU KC21 MT-DTU 在线 图执行管理 MANTHINK,DTU MT-DTU-EMETER 红外抄表 高线 S00016500AB52085 圆模型管理 MT-DTU, MT-DTU-EMETER 6353012AF1099301 MANTHINK,DTU 离线 MC11-IR DTU 系统管理 3F53012B00019F5F MT-DTU 3153012B0001915F 离线 高级功能 -->
+![](./assets/1765602474383-688142b0-5423-496c-9fa3-6eca2ba4be93.png)
+
+### 查看升级状态和任务
+点击任务详情，可以查看升级任务的状态和结果。
+
+点击 对应设备的 + 可将设备的升级详情展开，查看具体结果。
+
+如果参数结果报红，则是对升级结果的告警，当ClassA设备升级成ClassC 或者ClassC设备升级成ClassA时 会产生告警。
+
+<!-- 这是一张图片，ocr 内容为：任务详情 任务详情 名称 固件 升级方式 高级配置 ZMF EXAMPLE(29241763994537 ZMF TEST GW 子任务列表 工综 失败原因 状态 DEV-EUI 成功 6353012AF10A1805 子任务配置 2 分片连续发送次数 分片发送间隔(MS) 6000 2 等待校验时间(MS) 最大尝试升级次数 10000 下行 消息类型 校验超时时间(MS) 10000 确认包 FALSE 设备信息对比 升级前值 参数 升级后值 升级包设定值 40 HWTYPE 40 40 BATTERY FALSE TRUE FALSE -->
+![](./assets/1760873595344-f3cd20f6-566e-4748-b257-5e928be1b677.png)
