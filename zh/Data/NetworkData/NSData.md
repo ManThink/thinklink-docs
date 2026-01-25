@@ -1,6 +1,7 @@
+# 1. NS 数据
 NS 数据是 ThinkLink（TKL）系统中用于实时订阅 LoRaWAN MAC 层通信的原始数据，订阅的是网关与NS之间通信的数据。通过查看 NS 数据，用户可以获取设备与网关之间上行和下行的完整数据包信息，便于进行深度调试、网络性能分析和故障排查。
 
-## 数据格式
+## 1.1. 数据格式
 NS 数据可以以 JSON 格式查看，包含完整的物理层和链路层参数，能够清晰反映每一次无线通信的上下文环境。以下是典型的 NS 数据格式示例：
 
 ```json
@@ -72,7 +73,7 @@ NS 数据可以以 JSON 格式查看，包含完整的物理层和链路层参�
 <!-- 这是一张图片，ocr 内容为：THINK LINK DEMO TKC DEMO 首页 收起 重置 查询 仪表板 应用数据 网络数据 序号 上报时间 类型 FREG GWEUI DATA DATR NS数据 2025-09-2414:35:04 501.5 60 A8 3A 01..... " SF7BW125 5A53012501030011 TXPK AS数据 E三178900 CODE 运维管理 123456789013344 "EUI": "5A53012501030011", 模型管理 "TOKEN": 52914, 'PAYLOAD": "TXPK": 系统管理 "CODR":"4/5". ": "YKA6ATIM+AKNGLP+VU6CDZ50", "DATATA "DATR": "SF7BW125", "FDEV": 0, "FREG'' 501.5 "IMME'" FALSE, "IPOL": TRUE, "LORA". "MODU'': COL:2 464 CHARACTERS SELECTED LN:26 -->
 ![](./assets/1758697572433-5e836fea-21b6-49ec-98b6-439d1987029a.png)
 
-## LoRaWAN数据解析
+## 1.2. LoRaWAN数据解析
 此功能特别适用于开发人员在部署初期对传感器通信状态进行全面监控，确保数据可靠传输。
 
 点击数据报文的"+" 可查看针对NS数据LoRaWAN NS 的报文解析。

@@ -1,5 +1,5 @@
-## Role Management 
-**menu Path**: <font style="background-color:#E7E9E8;">SYSTEM → ROLE</font>  
+# 1. Role Management
+**menu Path**: SYSTEM → ROLE  
 
 thinkLink(TKL) provides the default `admin `the role, which has the highest operation permissions for all functions in the current organization and cannot be deleted. 
 

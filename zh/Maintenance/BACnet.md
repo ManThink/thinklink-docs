@@ -1,4 +1,4 @@
-## BACnet
+# 1. BACnet
 > 注意：BACnet 功能只在TKG（网关运行TKL）和TKE（边缘侧服务器）支持，云平台不支持BACnet
 >
 

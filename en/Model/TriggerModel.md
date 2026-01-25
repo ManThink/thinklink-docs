@@ -1,8 +1,9 @@
+# 1. Trigger Model
 The trigger model is used to trigger the specified RPC command after data processing to realize automatic control between devices. For example, when a change in ambient temperature is detected, the target set temperature of the air conditioner is automatically adjusted. 
 
 The trigger logic is implemented through JS script code. After the device is attached to the trigger model, you need to configure the device EUI to be linked in the server properties of the device. In the JS code, you can call the RPC command of the target device through this attribute to complete remote control or parameter setting. 
 
-## New Trigger Model 
+## 1.1. New Trigger Model
 the execution result of the trigger model is an object containing the RPC call instruction, and the return value structure is defined as follows: 
 
 | field  | description  |
@@ -21,7 +22,7 @@ Each `actions `the array entry contains the following fields:
 | `params` | The input parameters object passed to the RPC command. If the RPC does not require parameters, this should be set to `null`. |
 
 
-## return value example 
+## 1.2. return value example
 ```javascript
 let temperatrue=device?.telemetry_data?.["45616600866361349"].TP;
 if (temperatrue >25){
@@ -33,7 +34,7 @@ if (temperatrue >25){
     method: "mt_data_transparent",
     params: {
     _eui: device.eui,
-     "payload":"FE 05 00 00 FF 00 98 35"
+     payload:"FE 05 00 00 FF 00 98 35"
     }
     }
   ]
@@ -41,10 +42,10 @@ if (temperatrue >25){
 }
 ```
 
-> **prompt **: make sure that the target device is correctly registered to the TKL platform and has the corresponding RPC model and permissions. Otherwise, the command cannot be issued. 
+> **prompt**: make sure that the target device is correctly registered to the TKL platform and has the corresponding RPC model and permissions. Otherwise, the command cannot be issued. 
 >
 
-## Mount trigger model 
+## 1.3. Mount trigger model
 The created trigger needs to be bound to a specific device before it can be used.** Operation Path **: `maintenance  → device → [select target device configuration] → Details->trigger model  `** operation steps**: 
 
 1. on the device details page, click the trigger model tab. 

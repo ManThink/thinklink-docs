@@ -1,11 +1,11 @@
-# ThinkLink Introduction
+# 1. ThinkLink Introduction
 
 ThinkLink (hereinafter referred to as TKL) is a comprehensive and highly integrated IoT system designed for building efficient, secure and scalable LoRaWAN IoT solutions. TKL has built-in complete LoRaWAN network server (NS) function, which can centralize the management of LoRaWAN devices and gateways to ensure the stable operation of the network and the safe access of devices.
 
 At the same time, TKL supports accessing data from third-party systems through the standard MQTT protocol, realizing the integration and unified management of multi-source data, and greatly enhancing the openness and compatibility of the platform.
 The URL of the cloud ThinkLink is https://thinklink.manthink.cn
 
-## Deployment Flexibility
+## 1.1. Deployment Flexibility
 
 TKL provides high deployment flexibility. You can choose any of the following deployment methods based on project requirements and environment characteristics:
 
@@ -15,7 +15,7 @@ TKL provides high deployment flexibility. You can choose any of the following de
 
 This "cloud-edge-end" integrated deployment capability enables TKL to flexibly adapt to various requirements from small-scale testing to large-scale enterprise applications.
 
-## Core Features
+## 1.2. Core Features
 
 TKL provides a series of powerful function modules, covering the entire life cycle of IoT applications from device access to business analysis:
 

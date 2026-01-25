@@ -1,10 +1,10 @@
-## register 
+# 1. register
 ThinkLink supports a variety of convenient registration methods. Users can choose the most suitable method to complete account creation according to their usage habits. 
 The URL of ThinkLink cloud is https://thinklink.manthink.cn
-### Quick Registration 
+## 1.1. Quick Registration
 support one-click login through WeChat or Google account and automatically complete the registration process, without manually filling in information, and quickly open the use experience. 
 
-### Email Registration 
+## 1.2. Email Registration
 if you choose email registration, please follow these steps: 
 
 1. enter a valid email address on the registration page. 
@@ -19,7 +19,7 @@ after completing the above information, the registration process will be complet
 
 > **Note**: The user account must be unique in the system and cannot be repeated.
 >
-## Login
+## 1.3. Login
 ThinkLink provides four flexible login methods to meet the access needs of different users:
 
 + weChat account

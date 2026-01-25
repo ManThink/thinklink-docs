@@ -1,3 +1,4 @@
+# 1. AS data
 AS data is the real-time application layer data parsed by the LoRaWAN network server (NS) in the ThinkLink(TKL) system. Different from the original NS data, the AS data has been preliminarily decoded according to the device communication protocol defined by ManThink, so that users can view the upstream and downstream structured log information. 
 
 The device communication protocol of ManThink follows [[EN]  PTL-S05 ASP LoRaWAN NS and Application Server Communication Protocol](https://mensikeji.yuque.com/staff-zesscp/gqdw7f/rq1r3c4piwy64fyl?singleDoc#) 
@@ -6,7 +7,7 @@ the protocol specifies the format, encoding, message type and interaction proces
 
 For scenarios that require access to a third-party system, if you want to obtain data that has not been further processed by the TKL  model, you can subscribe to a specific topic through the MQTT protocol to implement real-time data reception and forwarding. For specific subscription methods and topic  rules, refer to the definitions in the preceding  documents. 
 
-## Upstream data example (up) 
+## 1.1. Upstream data example (up)
 ```json
 {
   "if": "loraWAN",
@@ -74,7 +75,7 @@ For scenarios that require access to a third-party system, if you want to obtain
 }
 ```
 
-> **description **: 
+> **description**: 
 >
 > + this is a typical uplink data packet, indicating that the terminal device sends data to the Gateway.
 > + `gwrx `the array shows the signal quality (RSSI, LSNR) of the frame received by multiple gateways, which can be used to locate the best path or analyze the coverage. 
@@ -84,7 +85,7 @@ For scenarios that require access to a third-party system, if you want to obtain
 > + `geoInfo `the geographic coordinate information of the Gateway is provided, which is applicable to application scenarios that support location services. 
 >
 
-## Downlink Data Example (dn) 
+## 1.2. Downlink Data Example (dn)
 ```json
 {
   "dn": {
@@ -107,7 +108,7 @@ For scenarios that require access to a third-party system, if you want to obtain
 }
 ```
 
->** description **: 
+>**description**: 
 >
 > + this is a typical downlink data packet, indicating that an instruction is delivered from the network server to the terminal device. 
 > + `moteeui `specifies the target device address. 
@@ -120,5 +121,5 @@ For scenarios that require access to a third-party system, if you want to obtain
 <!-- 这是一张图片，ocr 内容为：THINKLINK TKL DEMO HOME AS DATA DASHBOARD 2025-10-200:01-2025-10-2100:0(日 TIME RANGE: 2 PLEASE ENTER RESET DEVEUI: EXPAND V QUERY APPLICATION DATA NETWORK DATA C工字 NS DATA TYPE DEVEUI GW-EUI OPERATION SEQUENCE NO. INDEX UPDATE TIME DAS DATA 6353012AF1090468 2025-10-20 08:47 30256 5A530125010 COPY CONTENT UP R MAINTENANCE 2025-10-20 08:07:50 6353012AF10A1805 10806 5A530125010 COPY CONTENT UP 3 MODEL 命 SYSTEM POWERED BY ACE I- 1234567890133 GWRX": "EUI":"5A53012501030058", "CHAN":0, "LSNR":13.8, "RFCH":0. "RSSI'': 2025-10-20T00:07:49.807677Z', 'TIME'': TMMS 0, "TMST" 3350503360 "FTIME'':0 LN:1 COL:1 52219 6353012AF1090142 2025-10-20 0806:53 5A530125010 COPY CONTENT UP -->
 ![](./assets/1760918994108-32731c60-1d4c-407f-8f88-6a0025a8453e.png)
 
->** Prompt**: This function is applicable to advanced integration scenarios where you need to customize data parsing logic or connect to a private platform. It is recommended that developers compare and verify NS data with AS data during debugging to ensure data consistency. 
+>**Prompt**: This function is applicable to advanced integration scenarios where you need to customize data parsing logic or connect to a private platform. It is recommended that developers compare and verify NS data with AS data during debugging to ensure data consistency. 
 >

@@ -1,11 +1,12 @@
-### organization Permission Description 
+# 1. Organization
+## 1.1. Organization Permission
 + each user account **can only manage one organization as an administrator**. 
 + But can be as a member **join  other organizations**, and participate in collaboration within the scope of authority. 
 
-### New Organization 
-it is applicable to users who want to create a new organization and serve as its administrator. Note that after the user adds a new organization, the admin account will be automatically added to assist the user in handling problems. If the admin account is not required, please log on to the system page of the organization and click<font style="background-color:#D8DAD9;">System ->User  </font>delete admin manually. 
+## 1.2. New Organization
+it is applicable to users who want to create a new organization and serve as its administrator. Note that after the user adds a new organization, the admin account will be automatically added to assist the user in handling problems. If the admin account is not required, please log on to the system page of the organization and clickSystem ->User  delete admin manually. 
 
-1. Enter `ORGNIZATIONS `page, click **<font style="background-color:#E7E9E8;">Creat Organization</font>** button. 
+1. Enter `ORGNIZATIONS `page, click **Creat Organization** button. 
 2. Fill in the following required information (all fields need to be unique within the system): 
 
 | field Name  | description  |

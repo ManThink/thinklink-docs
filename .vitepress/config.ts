@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'ThinkLink',
-  description: 'Comprehensive IoT System Documentation',
+  description: 'IOT platform with native LoRaWAN NS',
   
   locales: {
     root: {
@@ -20,9 +20,12 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     siteTitle: 'ThinkLink',
+    search:{
+      provider: 'local'
+    },
     nav: [
       { text: 'Home', link: '/en/' },
-      { text: 'Deployment', link: '/en/deployment/' },
+      { text: 'Deployment', link: '/en/QuickStart/Deployment/ThinkLinkDocker' },
     ],
 
     sidebar: {
@@ -115,6 +118,7 @@ export default defineConfig({
               {
                 text: 'Protocol',
                 items: [
+                  { text: 'ThinkLink protocol', link: 'Protocol/ThinkLinkProtocol' },
                   { text: 'AS protocol', link: 'Protocol/ASProtocol' },
                 ],
               },
@@ -125,10 +129,16 @@ export default defineConfig({
                 ],
               }
               ]
-          },
-          {
-            text: 'EB',
-            items: [],
+          },{
+            items:[
+              {
+                text: 'EB',
+                items: [
+                  { text: 'EB compiler', link: 'EB/EdgeBusCompiler' },
+                  { text: 'EB APP paras', link: 'EB/EdgeBusAppPara' }
+                ]
+              }
+            ]
           }
         ],
       },
@@ -211,6 +221,7 @@ export default defineConfig({
               {
                 text: '协议',
                 items: [
+                  { text: 'ThinkLink 协议', link: 'Protocol/ThinkLinkProtocol' },
                   { text: 'AS 协议', link: 'Protocol/ASProtocol' },
                 ],
               },
@@ -231,20 +242,27 @@ export default defineConfig({
             ]
           },
           {
-            text: 'EB',
-            items: [],
+            items:[
+              {
+                text: 'EB',
+                items: [
+                  { text: 'EB compiler', link: 'EB/EdgeBusCompiler' },
+                  { text: 'EB APP 参数', link: 'EB/EdgeBusAppPara' }
+                ]
+              }
+            ]
           }
         ],
       },
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com' },
+      { icon: 'linkedin', link: 'https://www.linkedin.com/company/30482418' },
+      { icon: 'x', link: 'https://x.com/ManThinkTech' },
+      { icon:'github',link:'https://github.com/ManThink'},
     ],
-
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2025 ThinkLink',
+      copyright: 'Copyright © 2025 ThinkLink Email : info@manthink.cn',
     },
   },
 })

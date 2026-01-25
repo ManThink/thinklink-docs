@@ -1,7 +1,7 @@
-## 介绍
+# 1. Docker 部署
 thinklink-docker 是thinklink的docker安装配置文件,当前只支持x64平台
 Docker 仓库的地址为：https://gitee.com/manthink_bj/thinklink-docker 
-## 安装说明
+## 1.1. 安装说明
 1.  将仓库clone到本地
 2.  执行docker-compose up
 3.  镜像已上传至dockerhub,docker-compose会自动拉取

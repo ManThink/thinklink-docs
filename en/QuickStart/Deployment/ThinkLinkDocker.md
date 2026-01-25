@@ -1,8 +1,8 @@
-## Introduction
+# 1. ThinkLink Docker
 thinklink-docker contains the Docker installation and configuration files for thinklink.
  Currently, only the x64 platform is supported.
 Docker repo ：https://github.com/ManThink/ThinkLink-docker
-## Instructions
+## 1.1. Instructions
 1. Clone the repository to your local machine.
 2. Run `docker-compose up`.
 3. The images have been uploaded to Docker Hub and will be automatically pulled by docker-compose.

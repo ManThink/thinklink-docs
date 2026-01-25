@@ -8,8 +8,8 @@ layout: doc
     <p class="home-hero-text">Comprehensive IoT System</p>
     <p class="home-hero-tagline">Build efficient, secure, and scalable LoRaWAN IoT solutions</p>
     <div class="home-hero-actions">
-      <a class="action-button primary" href="/en/ThinkLinkIntroduction/DeploymentFlexibility">Get Started</a>
-      <a class="action-button" href="https://github.com">View on GitHub</a>
+      <a class="action-button primary" href="QuickStart/RegistrationAndLogin/Register">Get Started</a>
+      <a class="action-button" href="https://github.com/ManThink/">View on GitHub</a>
     </div>
   </div>
 </div>
@@ -81,9 +81,10 @@ layout: doc
 ## Community & Support
 
 Have questions? Join our community or contact our support team. We're here to help you succeed with ThinkLink.
-
-**Last Updated**: January 2025  
-**Version**: 1.0.0
+- **Email**    : info@manthink.cn
+- **Mobile**   : +86-15810684257
+- **Last Updated**: January 2026 
+- **Version**: 1.0.0
 
 <style>
 .home-hero {

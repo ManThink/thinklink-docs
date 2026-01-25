@@ -1,26 +1,27 @@
-ThinkLink (hereinafter referred to as TKL) **RPC model ** Provides the ability to remotely control and configure parameters for LoRaWAN devices. By defining a standardized Remote Procedure Call (Remote Procedure Call), users can issue instructions to the device, set working parameters, or trigger specific actions to achieve intelligent operation and maintenance management of the device. 
+# 1. RPC Model
+ThinkLink (hereinafter referred to as TKL) **RPC model** Provides the ability to remotely control and configure parameters for LoRaWAN devices. By defining a standardized Remote Procedure Call (Remote Procedure Call), users can issue instructions to the device, set working parameters, or trigger specific actions to achieve intelligent operation and maintenance management of the device. 
 
-## New RPC 
+## 1.1. New RPC
 in The TKL platform, you can create a new RPC command by following these steps: 
 
-1. enter ** model management → RPC model → Add**. 
+1. enter **model management → RPC model → Add**. 
 2. Configure basic information and script logic. 
 
 <!-- 这是一张图片，ocr 内容为：X RPC MODEL RPC DASHBOARD PLEASE SELECT PLEASE ENTER PLEASE ENTER NAME: 目 APPLICATION DATA NETWORK DATA PLEASE ENTER 1D MODEL FIELD IDENTIFIER TYPO ADD DEFAULT VALUE UNIT IS SELECT NAME INDEX 331490 A THING MODEL 331488 田 RPC 331486 331483 DEVICE TEMPLATE RPC SCRIPT SYSTEM 441125 BADVANCED FUNCTION RPC_SCRIPT((DEVICE,PARAMS)( 419358 FUNCTION ENCODCFPARANS1 1 LET BUFFCR " BUFFER.FRON(*FFFFFF","HEX") 418869 RETURN BUFFCR.TOSTRING('BASE64"1; 418864 RETURN SLEEPTIMEHS:0. 416012 "VERS10N":"3.0". "1F"I"LORAN". "NOTEEUI':DEVICE.EUI. TOKEN"I NEW DATE().GETTINE(). "USERDATA":{ -->
 ![](./assets/1765182643412-e5288f23-2ae3-4772-895c-bccad6651cb8.png)
 
-## Parameter Information
-| Field | Description |
-| --- | --- |
-| **Field Identifier ** | The variable name of the parameter in the script — i.e., the key in the `params` object. For example: `period` represents the reporting interval value and will be used in the script to read user input. |
-|** Method ** | The function name used when invoking via MQTT or other interfaces. |
-|** Alias ** | The display name shown in the user interface (UI), improving readability. For example: "Set Reporting Interval", helping users understand the purpose of the parameter. |
-|** Inherit** | Whether this RPC can be inherited by sub-devices:   ✅ `true`: Sub-devices under this device can use this RPC.   ❌ `false`: Sub-devices cannot use this RPC. |
+## 1.2. Parameter Information
+| Field | Description                                                                                                                                                                                    |
+| --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**Field Identifier** | The variable name of the parameter in the script — i.e., the key in the `params` object. For example: `period` represents the reporting interval value and will be used in the script to read user input. |
+|**Method** | The function name used when invoking via MQTT or other interfaces.                                                                                                                             |
+|**Alias** | The display name shown in the user interface (UI), improving readability. For example: "Set Reporting Interval", helping users understand the purpose of the parameter.                        |
+|**Inherit** | Whether this RPC can be inherited by sub-devices:  <br> ✅ `true`: Sub-devices under this device can use this RPC.<br>  ❌ `false`: Sub-devices cannot use this RPC.                             |
 
 
 ✅ Multiple parameter fields can be added to support complex control requirements.
 
-## RPC Scripting
+## 1.3. RPC Scripting
 TKL supports writing custom encoding scripts using JavaScript. These scripts convert user-provided inputs into data formats compliant with the target device's communication protocol, then send them via the downlink.
 
 Example Script:
@@ -190,17 +191,16 @@ return [
 ];
 ```
 
-### Input Parameters
+### 1.3.1. Input Parameters
 1. `device`
 
 Represents the target device object. You can access the following properties:
-
-    - `device.shared_attrs`: Shared attributes across platforms.
-    - `device.server_attrs`: Server-side attributes stored in the TKL system.
-    - `device.telemetry[thingmodelId]`: Latest telemetry data. Replace `thingmodelId` with an actual ID.  
+- `device.shared_attrs`: Shared attributes across platforms.
+- `device.server_attrs`: Server-side attributes stored in the TKL system.
+- `device.telemetry[thingmodelId]`: Latest telemetry data. Replace `thingmodelId` with an actual ID.  
 Example: `device?.telemetry_data?.["45616600866361349"].TP`
 
-📌 When calling RPC via MQTT or HTTP, you **must explicitly provide the device EUI **, using the field name `_eui`.
+📌 When calling RPC via MQTT or HTTP, you **must explicitly provide the device EUI**, using the field name `_eui`.
 
 2.  `params`
 
@@ -208,19 +208,21 @@ An object containing all user-input parameters provided through the UI or API.
 
 | Attribute | Description |
 | --- | --- |
-| <font style="color:rgba(0, 0, 0, 0.88);">Attr Name</font> | Used in JS scripts as `params.xxx` to retrieve input values. |
-|** Index ** | Determines the display order of parameters in the UI. |
-|** Alias ** | Friendly name shown in the UI for better understanding. |
-|** Type ** | Supported types: `number`, `string`, `boolean`, `object`. |
-|** Default Value ** | Value used if no input is given. |
-|** Unit ** | Physical unit appended during display (e.g., `s`, `min`, `℃`). |
-|** Options ** | Dropdown list options in key-value pair format. |
+| Attr Name | Used in JS scripts as `params.xxx` to retrieve input values. |
+|**Index** | Determines the display order of parameters in the UI. |
+|**Alias** | Friendly name shown in the UI for better understanding. |
+|**Type** | Supported types: `number`, `string`, `boolean`, `object`. |
+|**Default Value** | Value used if no input is given. |
+|**Unit** | Physical unit appended during display (e.g., `s`, `min`, `℃`). |
+|**Options** | Dropdown list options in key-value pair format. |
 
 
-3. <font style="background-color:#D8DAD9;">alarms</font>  
- Stores alarm information for the corresponding device. You can check whether a specific alarm (identified by alarm_name) exists by accessing alarms[[alarm_name]]. The RPC code can perform corresponding logic processing based on the status of the relevant alarm.
-4. <font style="background-color:#D8DAD9;">logger</font>  
- Logs for RPC operations. The usage of logger is consistent with console, where user-defined messages must be passed as an Object assigned to the "params" variable. The logger supports three log levels: <font style="background-color:#D8DAD9;">info</font>, <font style="background-color:#D8DAD9;">warn</font>, and <font style="background-color:#D8DAD9;">error</font>, facilitating message filtering and searching by severity level.  
+3. `alarms`
+
+   Stores alarm information for the corresponding device. You can check whether a specific alarm (identified by alarm_name) exists by accessing alarms[[alarm_name]]. The RPC code can perform corresponding logic processing based on the status of the relevant alarm.
+4. `logger`
+
+   Logs for RPC operations. The usage of logger is consistent with console, where user-defined messages must be passed as an Object assigned to the "params" variable. The logger supports three log levels: info, warn, and error, facilitating message filtering and searching by severity level.  
  Example usage:  
 
 
@@ -228,7 +230,7 @@ An object containing all user-input parameters provided through the UI or API.
  logger.info("set my paras", {params: paras})
 ```
 
-### Return Parameters
+### 1.3.2. Return Parameters
 A single RPC can execute multiple sequential commands. Each item in the returned array conforms to one of the following structures:
 
 1. Type 1: Send Device Command (LoRaWAN or Non-LoRaWAN Devices)
@@ -323,36 +325,39 @@ example：
 
 | Field | Description |
 | --- | --- |
-|** sleepTimeMs ** | Delay (in milliseconds) before sending this command. Useful for controlling timing between multiple downlinks. |
-|** target ** | Default: EUI of the target device.   When operating on sub-devices, set to `device.parent`, because the command must be forwarded through the parent device. |
-|** type ** | Specifies the type of instruction:   • `default`: Normal downlink message   • `modifyAttrs`: Update server/shared attributes |
+|**sleepTimeMs** | Delay (in milliseconds) before sending this command. Useful for controlling timing between multiple downlinks. |
+|**target** | Default: EUI of the target device.   When operating on sub-devices, set to `device.parent`, because the command must be forwarded through the parent device. |
+|**type** | Specifies the type of instruction:   • `default`: Normal downlink message   • `modifyAttrs`: Update server/shared attributes |
 
 
-✅** Best Practice **: Always test RPC scripts in a development environment before deployment. Use the built-in debugger to validate output payloads and ensure proper encoding.
+✅**Best Practice**: Always test RPC scripts in a development environment before deployment. Use the built-in debugger to validate output payloads and ensure proper encoding.
 
-## MOUNT RPC 
-the created RPC must be bound to a specific device before it can be used.** Operation Path **:`Operation and maintenance management → equipment management → select target equipment → Details → RPC `** operation steps **: 
-
+## 1.4. MOUNT RPC
+the created RPC must be bound to a specific device before it can be used.
+- **Operation Path**:`Operation and maintenance management → equipment management → select target equipment → Details → RPC `
+- **operation steps**:
 1. on the Device Details page, click the RPC tab. 
 2. Click Add and select the created RPC from the drop-down list. 
 3. Repeatably add multiple different RPCs to the same device. 
 
 ✅ Supports mounting multiple RPCs on one device, which is suitable for multi-function control scenarios. 
 
-## Execute RPC 
-after the RPC is successfully mounted, you can call the device remotely.** Operation Path **: same as above, enter device details → RPC Management Interface ** operation mode **: 
+## 1.5. Execute RPC
+after the RPC is successfully mounted, you can call the device remotely.
+- **Operation Path** : same as above, enter device details → RPC Management Interface 
+- **operation mode**: 
 
 1. locate the mounted RPC entry. 
-2. Click in the corresponding operation column ** execution ** button. 
+2. Click in the corresponding operation column **execution** button. 
 3. Input window pops up, fill in the parameter values (according to the "Alias" prompt input). 
 4. After confirmation, the system will call the script to generate instructions and send them to the device. 
 
  The execution result can be viewed in the log or device response, depending on the device return mechanism and confirmation mode settings (Confirmed/Unconfirmed). 
 
-Through flexible configuration ** RPC model** TKL realizes the fine remote control ability of LoRaWAN equipment, and provides an efficient means for equipment debugging, configuration update and fault disposal. 
+Through flexible configuration **RPC model** TKL realizes the fine remote control ability of LoRaWAN equipment, and provides an efficient means for equipment debugging, configuration update and fault disposal. 
 
-## <font style="color:rgb(0, 0, 0);">Alarm RPC</font>
-<font style="color:rgb(0, 0, 0);">ThinkLink has built-in a general-purpose alarm RPC function called ALARM. To use it, you need to mount the ALARM RPC onto the corresponding device or asset. After configuring the trigger model, the alarm functionality can be achieved. The default ALARM is as follows:</font>
+## 1.6. Alarm RPC
+ThinkLink has built-in a general-purpose alarm RPC function called ALARM. To use it, you need to mount the ALARM RPC onto the corresponding device or asset. After configuring the trigger model, the alarm functionality can be achieved. The default ALARM is as follows:
 
 ```javascript
 function rpc_script({device, params,alarms,logger}) {

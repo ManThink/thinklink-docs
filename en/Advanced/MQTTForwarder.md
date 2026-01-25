@@ -1,36 +1,40 @@
+# 1. MQTT Forwarder
 The MQTT Forwarder is a middleware solution designed to enable protocol integration with third-party application platforms. It provides flexible message processing through customizable JavaScript scripting, supporting:
 
 + Cross-platform message routing (source → target broker)
 + Dynamic Topic redirection
 + Message content format transformation
 
-### **Configuration Workflow ** Step 1: Establish Broker Connections**
+## 1.1. **Configuration Workflow**
+**Step 1: Establish Broker Connections**
 
 Prepare the necessary authentication details for both source and target brokers.
 
-1.** Authentication Preparation:**
-    - Username / Password
-    - TLS Certificate (required if encrypted connection is used)
-2.** Connection Type Selection:**
-    -** Standard MQTT Broker:** Full connection details must be provided.
-    -**TKL Ecosystem Data:**
-        * **AS Type:** Retrieves LoRaWAN application-layer data after parsing.  
+1.**Authentication Preparation:**
+- Username / Password
+- TLS Certificate (required if encrypted connection is used)
+2.**Connection Type Selection:**
+- **Standard MQTT Broker:** Full connection details must be provided.
+- **TKL Ecosystem Data:**
+    * **AS Type:** Retrieves LoRaWAN application-layer data after parsing.  
 Subscription topic permission: `/v32/[organization ID]/as/#`
-        * **ThinkLink Type:** Retrieves data parsed by ThinkLink’s Thing Model.  
+    * **ThinkLink Type:** Retrieves data parsed by ThinkLink’s Thing Model.  
 Subscription topic: `/v32/[organization ID]/tkl/#`
 
->** Note **: At least two broker connections must be established — one as the** source **and one as the ** target**.
->** Step 2: Configure Forwarding Rules **1.** Access Configuration Interface:**  
-[Advanced Features] → [Forwarder] → [Add New]
-2.** Basic Settings:**
-    - Name the forwarder instance
-    - Enable/Disable the forwarder function
-3.** Endpoint Configuration:**
-    -** Source Broker ** (select from dropdown; create new if not available)
-    -** Target Broker ** (select from dropdown; create new if not available)
-    -** Subscription Topic ** (wildcards supported, e.g., `+/temp/+`)
+>**Note**: At least two broker connections must be established — one as the **source** and one as the **target**.
 
-####** Optional: Protocol Conversion Script **
+**Step 2: Configure Forwarding Rules**
+> 1.**Access Configuration Interface:**  
+[Advanced Features] → [Forwarder] → [Add New]
+> 2.**Basic Settings:**
+- Name the forwarder instance
+- Enable/Disable the forwarder function
+> 3.**Endpoint Configuration:**
+- **Source Broker** (select from dropdown; create new if not available)
+- **Target Broker** (select from dropdown; create new if not available)
+- **Subscription Topic** (wildcards supported, e.g., `+/temp/+`)
+
+## 1.2. **Optional: Protocol Conversion Script**
 Use a custom JS script to transform message structure during forwarding. Messages can be filtered, remapped, or dropped based on logic.
 
 ```javascript
@@ -70,7 +74,7 @@ function forwardScript({topic, msg}) {
 }
 ```
 
-#### **Input Parameters **
+### 1.2.1. **Input Parameters**
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `topic` | string | The original MQTT topic received |
@@ -79,17 +83,17 @@ function forwardScript({topic, msg}) {
 
 ---
 
-#####** Return Value **
+### 1.2.2. **Return Value**
 Returns a new message object to be forwarded, or `null` to discard the message.
 
-| Field | Type | Description |
-| --- | --- | --- |
+| Field  | Type | Description |
+|--------| --- | --- |
 | `topic` | string | Target topic; supports dynamic placeholders (e.g., `${msg.deviceId}`) |
-| `msg` | Object | Transformed message content, compliant with target protocol requirements |
-| option | object | <font style="color:rgb(0, 0, 0);">if retain message， then set option:{retain:true}</font> |
+| `msg`  | Object | Transformed message content, compliant with target protocol requirements |
+| `option` | object | if retain message， then set `option:{retain:true}` |
 
 
-✅** Best Practices:**
+✅ **Best Practices:**
 
 + Always validate incoming message structure before transformation.
 + Use descriptive names for forwarder instances to simplify management.

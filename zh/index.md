@@ -8,8 +8,8 @@ layout: doc
     <p class="home-hero-text">综合物联网系统</p>
     <p class="home-hero-tagline">构建高效、安全、可扩展的 LoRaWAN 物联网解决方案</p>
     <div class="home-hero-actions">
-      <a class="action-button primary" href="/zh/ThinkLinkIntroduction/DeploymentFlexibility">快速开始</a>
-      <a class="action-button" href="https://github.com">查看 GitHub</a>
+      <a class="action-button primary" href="/zh/QuickStart/RegistrationAndLogin/Register">快速开始</a>
+      <a class="action-button" href="https://github.com/ManThink/">查看 GitHub</a>
     </div>
   </div>
 </div>
@@ -81,9 +81,11 @@ layout: doc
 ## 社区与支持
 
 有问题？加入我们的社区或联系支持团队。我们随时准备帮助你成功使用 ThinkLink。
+- **Email**     : info@manthink.cn
+- **电 话/微信** : 15810684257
 
-**最后更新**：2025 年 1 月  
-**版本**：1.0.0
+- **最后更新**   :2026 年 1 月  
+- **版本**      :1.0.0
 
 <style>
 .home-hero {

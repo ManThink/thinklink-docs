@@ -1,5 +1,6 @@
-### new User 
-**operation Path**: <font style="background-color:#E7E9E8;">SYSTEM → USER → Add</font> 
+# 1. User Management
+## 1.1. New User
+**operation Path**: SYSTEM → USER → Add 
 
 1. Click **"Add"** button to pop up the user creation form. 
 2. Fill in the login account (usually email or mobile phone number), set the initial password. 
@@ -11,8 +12,8 @@ When newly created users log in for the first time, they will be prompted to com
 <!-- 这是一张图片，ocr 内容为：TKL THINKLINK DEMO & HOME USER DASHBOARD ADD NEW ACCOUNT EXPAND V ID: RESET PLEASE ENTER QUERY NAME APPLICATION DATA PLEASE ENTER NETWORK DATA ACCOUNT 本 ADD MAINTENANCE PLEASE ENTER ID EMAIL NAME OPERATION B MODEL PASSWORD 1 ROLE CHANGE DELETE R ADMIN SYSTEM PLEASE ENTER ROLES 22648402131030021 ROLE CHANGE INFO@MANTHINK.CN MANTHINK DELETE A USER PLEASE SELECT 22719538684497925 ROLE CHANGE R ROLE DEMO DELETE OK CANCEL BG SERVER CONFIG 1-3 OF 3 ITEMS -->
 ![](./assets/1760917112210-4c69bdf0-a8c5-412c-83fc-fd49b67b5f0e.png)
 
-### Invite Users
-**operation Path**: <font style="background-color:#E7E9E8;">SYSTEM → USER → Account Invitation</font> 
+## 1.2. Invite Users
+**operation Path**: SYSTEM → USER → Account Invitation 
 
 1. Click **"Account Invitation"** button to pop up the invitation dialog box. 
 2. Enter the account of the target user (supported email or mobile phone number). 
@@ -24,7 +25,7 @@ The invited user will receive the invitation notification in the ThinkLink syste
 <!-- 这是一张图片，ocr 内容为：TIKL THINKLINK DEMO HOME USER DASHBOARD X ACCOUNT INVITATION ID: PLEASE ENTER EXPAND RESET QUERY USER ACCOUNT APPLICATION DATA PLEASE SELECT NETWORK DATA ROLES C工亭 +ADD ACCOUNT LNVITATION MAINTENANCE PLEASE SELECT OPERATION EMAIL 图 MODEL INVITATION MESSAGE ROLE CHANGE DELETE PLEASE ENTER 今 SYSTEM ROLE CHANGE 22648402131030021 NFO@MANTHINK.CN DELETE A USER OK CANCEL ROLE CHANGE 22719538684497925 ROLE DELETE B&SERVER CONFIG 1-3 OF 3 ITEMS -->
 ![](./assets/1760917201207-4b99c241-9a03-46b0-9ce4-4abc2971fcd5.png)
 
-### Role Change 
+## 1.3. Role Change
 In the user management list, there is an operation menu on the right side of each user entry. Click **"Role Change"** to modify the user's current role: 
 
 1. A character selection box pops up. 
@@ -33,7 +34,7 @@ In the user management list, there is an operation menu on the right side of eac
 
 Applicable to scenarios such as personnel responsibility adjustment and project collaboration changes. 
 
-### Transfer Ownership
+## 1.4. Transfer Ownership
 **permission description**: This feature is visible and operable only by the owner of the current organization. 
 
 In the User Actions menu, click **"Transfer Ownership"**: 
