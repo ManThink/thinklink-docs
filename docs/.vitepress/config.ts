@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  outDir: "./thinklink-docs",
   title: 'ThinkLink',
   description: 'IOT platform with native LoRaWAN NS',
   

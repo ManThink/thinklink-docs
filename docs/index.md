@@ -86,7 +86,7 @@ Have questions? Join our community or contact our support team. We're here to he
 - **Last Updated**: January 2026 
 - **Version**: 1.0.0
 
-<style>
+<style  scoped>
 .home-hero {
   text-align: center;
   padding: 48px 24px;
