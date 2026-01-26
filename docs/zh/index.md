@@ -1,14 +1,17 @@
 ---
 layout: doc
 ---
+<script setup>
+import { withBase } from 'vitepress'
 
+</script>
 <div class="home-hero">
   <div class="home-hero-content">
     <h1 class="home-hero-name">ThinkLink</h1>
     <p class="home-hero-text">综合物联网系统</p>
     <p class="home-hero-tagline">构建高效、安全、可扩展的 LoRaWAN 物联网解决方案</p>
     <div class="home-hero-actions">
-      <a class="action-button primary" href="/zh/QuickStart/RegistrationAndLogin/Register">快速开始</a>
+      <a class="action-button primary" :href="withBase('/zh/QuickStart/RegistrationAndLogin/Register')">快速开始</a>
       <a class="action-button" href="https://github.com/ManThink/">查看 GitHub</a>
     </div>
   </div>
