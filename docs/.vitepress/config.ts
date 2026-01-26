@@ -1,7 +1,9 @@
 import { defineConfig } from 'vitepress'
 
+export const baseUrl = "/tkl-docs"
 export default defineConfig({
-  outDir: "./thinklink-docs",
+  base: baseUrl,
+  outDir: `.${baseUrl}`,
   title: 'ThinkLink',
   description: 'IOT platform with native LoRaWAN NS',
   
@@ -19,7 +21,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: '/logo.svg',
+    // logo: '/logo.svg',
     siteTitle: 'ThinkLink',
     search:{
       provider: 'local'

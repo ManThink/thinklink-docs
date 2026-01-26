@@ -1,14 +1,17 @@
 ---
 layout: doc
 ---
+<script setup>
+import { withBase } from 'vitepress'
 
+</script>
 <div class="home-hero">
   <div class="home-hero-content">
     <h1 class="home-hero-name">ThinkLink</h1>
     <p class="home-hero-text">Comprehensive IoT System</p>
     <p class="home-hero-tagline">Build efficient, secure, and scalable LoRaWAN IoT solutions</p>
     <div class="home-hero-actions">
-      <a class="action-button primary" href="/en/QuickStart/RegistrationAndLogin/Register">Get Started</a>
+      <a class="action-button primary" :href="withBase('/en/QuickStart/RegistrationAndLogin/Register')">Get Started</a>
       <a class="action-button" href="https://github.com/ManThink/">View on GitHub</a>
     </div>
   </div>
