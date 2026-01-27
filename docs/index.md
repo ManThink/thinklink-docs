@@ -1,5 +1,6 @@
 ---
 layout: doc
+lang: en
 ---
 <script setup>
 import { withBase } from 'vitepress'

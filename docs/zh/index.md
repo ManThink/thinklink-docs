@@ -1,5 +1,6 @@
 ---
 layout: doc
+lang: zh-CN
 ---
 <script setup>
 import { withBase } from 'vitepress'

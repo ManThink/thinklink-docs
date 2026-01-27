@@ -11,13 +11,13 @@ export default defineConfig({
     root: {
       label: 'English',
       lang: 'en',
-      link: '/en/',
+      link: '/',
     },
     zh: {
       label: '中文',
       lang: 'zh-CN',
       link: '/zh/',
-    },
+    }, 
   },
 
   themeConfig: {
@@ -27,7 +27,7 @@ export default defineConfig({
       provider: 'local'
     },
     nav: [
-      { text: 'Home', link: '/en/' },
+      { text: 'Home', link: '/' },
       { text: 'Deployment', link: '/en/QuickStart/Deployment/ThinkLinkDocker' },
     ],
 
