@@ -6,17 +6,33 @@ export default defineConfig({
   outDir: `.${baseUrl}`,
   title: 'ThinkLink',
   description: 'IOT platform with native LoRaWAN NS',
-  
+  // rewrites: {
+  //   'en/:slug*': ':slug*'
+  // },
   locales: {
     root: {
       label: 'English',
       lang: 'en',
-      link: '/',
+      link: '/en/',
+      themeConfig: {
+        nav: [
+          { text: 'Home', link: '/en/' },
+          // 英文链接使用根路径 (因为有 rewrites 映射)
+          { text: 'Guide', link: '/en/QuickStart/Deployment/ThinkLinkDocker' }, 
+        ],
+      }
     },
     zh: {
       label: '中文',
       lang: 'zh-CN',
       link: '/zh/',
+      themeConfig: {
+        nav: [
+          { text: '首页', link: '/zh/' },
+          // 中文链接使用 /zh/ 前缀 (或使用相对路径，但绝对路径更清晰)
+          { text: '指南', link: '/zh/QuickStart/Deployment/ThinkLinkDocker' }, 
+        ],
+      }
     }, 
   },
 
@@ -26,10 +42,10 @@ export default defineConfig({
     search:{
       provider: 'local'
     },
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Deployment', link: '/en/QuickStart/Deployment/ThinkLinkDocker' },
-    ],
+    // nav: [
+    //   { text: 'Home', link: '/' },
+    //   { text: 'Deployment', link: '/en/QuickStart/Deployment/ThinkLinkDocker' },
+    // ],
 
     sidebar: {
       '/en/': {

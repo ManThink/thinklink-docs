@@ -1,6 +1,6 @@
 ---
 layout: doc
-lang: zh-CN
+lang: en
 sidebar: false
 ---
 <script setup>
@@ -10,11 +10,11 @@ import { withBase } from 'vitepress'
 <div class="home-hero">
   <div class="home-hero-content">
     <h1 class="home-hero-name">ThinkLink</h1>
-    <p class="home-hero-text">综合物联网系统</p>
-    <p class="home-hero-tagline">构建高效、安全、可扩展的 LoRaWAN 物联网解决方案</p>
+    <p class="home-hero-text">Comprehensive IoT System</p>
+    <p class="home-hero-tagline">Build efficient, secure, and scalable LoRaWAN IoT solutions</p>
     <div class="home-hero-actions">
-      <a class="action-button primary" :href="withBase('/zh/QuickStart/RegistrationAndLogin/Register')">快速开始</a>
-      <a class="action-button" href="https://github.com/ManThink/">查看 GitHub</a>
+      <a class="action-button primary" :href="withBase('/en/QuickStart/RegistrationAndLogin/Register')">Get Started</a>
+      <a class="action-button" href="https://github.com/ManThink/">View on GitHub</a>
     </div>
   </div>
 </div>
@@ -22,77 +22,76 @@ import { withBase } from 'vitepress'
 <div class="home-features">
   <div class="feature-item">
     <div class="feature-icon">🌐</div>
-    <h3 class="feature-title">灵活的部署方式</h3>
-    <p class="feature-details">支持云服务器、边缘服务器 (TKE) 或网关内部 (TKG) 部署</p>
+    <h3 class="feature-title">Flexible Deployment</h3>
+    <p class="feature-details">Support cloud server, edge server (TKE), or gateway internal (TKG) deployment</p>
   </div>
   
   <div class="feature-item">
     <div class="feature-icon">📊</div>
-    <h3 class="feature-title">集成数据模型</h3>
-    <p class="feature-details">将原始 LoRaWAN 和 MQTT 数据解析为结构化应用层数据</p>
+    <h3 class="feature-title">Integrated Data Model</h3>
+    <p class="feature-details">Parse raw LoRaWAN and MQTT data into structured application-layer data</p>
   </div>
   
   <div class="feature-item">
     <div class="feature-icon">🔧</div>
-    <h3 class="feature-title">RPC 远程管理</h3>
-    <p class="feature-details">远程配置设备参数并下发控制指令</p>
+    <h3 class="feature-title">RPC Remote Management</h3>
+    <p class="feature-details">Remotely configure device parameters and issue control commands</p>
   </div>
   
   <div class="feature-item">
     <div class="feature-icon">🏢</div>
-    <h3 class="feature-title">资产聚合</h3>
-    <p class="feature-details">通过物模型对多个设备数据进行聚合形成资产视图</p>
+    <h3 class="feature-title">Asset Aggregation</h3>
+    <p class="feature-details">Aggregate data from multiple devices through thing models to form asset views</p>
   </div>
   
   <div class="feature-item">
     <div class="feature-icon">⚡</div>
-    <h3 class="feature-title">实时监测</h3>
-    <p class="feature-details">实时侦听网络数据，快速调试 LoRaWAN 传感器</p>
+    <h3 class="feature-title">Real-time Monitoring</h3>
+    <p class="feature-details">Real-time listening to network data for quick debugging of LoRaWAN sensors</p>
   </div>
   
   <div class="feature-item">
     <div class="feature-icon">🔌</div>
-    <h3 class="feature-title">协议对接</h3>
-    <p class="feature-details">无缝对接 BACnet、Modbus TCP、Home Assistant、ThingsBoard</p>
+    <h3 class="feature-title">Protocol Integration</h3>
+    <p class="feature-details">Seamless integration with BACnet, Modbus TCP, Home Assistant, ThingsBoard</p>
   </div>
   
   <div class="feature-item">
     <div class="feature-icon">🚨</div>
-    <h3 class="feature-title">智能告警</h3>
-    <p class="feature-details">基于多种数据类型设置告警规则，支持多渠道通知</p>
+    <h3 class="feature-title">Smart Alarms</h3>
+    <p class="feature-details">Set alarm rules based on multiple data types with multi-channel notifications</p>
   </div>
   
   <div class="feature-item">
     <div class="feature-icon">☁️</div>
-    <h3 class="feature-title">云端编译</h3>
-    <p class="feature-details">在云端完成 EB 代码编译与下载，简化嵌入式开发流程</p>
+    <h3 class="feature-title">Cloud Compilation</h3>
+    <p class="feature-details">Complete EB code compilation and download in the cloud, simplifying embedded development</p>
   </div>
 </div>
 
-## 为什么选择 ThinkLink？
+## Why Choose ThinkLink?
 
-**ThinkLink (TKL)** 是一个功能全面、高度集成的综合性物联网系统，专为构建高效、安全、可扩展的 LoRaWAN 物联网解决方案而设计。内置完整的 LoRaWAN 网络服务器 (NS) 功能，支持多种灵活的部署方式。
+**ThinkLink (TKL)** is a comprehensive and highly integrated IoT system designed for building efficient, secure, and scalable LoRaWAN IoT solutions. It features a built-in complete LoRaWAN network server (NS) function and supports multiple flexible deployment methods.
 
-### 核心优势
+### Core Advantages
 
-- **完整的 LoRaWAN 管理**：内置网络服务器，集中管理设备和网关
-- **多源数据融合**：统一管理 LoRaWAN 和 MQTT 数据流
-- **灵活的部署方式**：云、边缘或网关部署，满足各类需求
-- **高级数据分析**：将原始传感器数据转化为可操作的洞察
-- **企业级安全**：设备认证和加密通信
+- **Complete LoRaWAN Management**: Built-in network server for centralized device and gateway management
+- **Multi-source Data Integration**: Unified management of LoRaWAN and MQTT data streams
+- **Flexible Deployment**: Cloud, edge, or gateway deployment to meet various needs
+- **Advanced Data Analytics**: Transform raw sensor data into actionable insights
+- **Enterprise-grade Security**: Device authentication and encrypted communication
 
 ---
 
-## 社区与支持
+## Community & Support
 
-有问题？加入我们的社区或联系支持团队。我们随时准备帮助你成功使用 ThinkLink。
-- **Email**     : info@manthink.cn
-- **电 话/微信** : 15810684257
+Have questions? Join our community or contact our support team. We're here to help you succeed with ThinkLink.
+- **Email**    : info@manthink.cn
+- **Mobile**   : +86-15810684257
+- **Last Updated**: January 2026 
+- **Version**: 1.0.0
 
-- **最后更新**   :2026 年 1 月  
-- **版本**      :1.0.0
-
-<style>
+<style  scoped>
 .home-hero {
   text-align: center;
   padding: 48px 24px;
