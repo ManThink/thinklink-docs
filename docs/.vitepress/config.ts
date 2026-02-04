@@ -1,3 +1,4 @@
+// @ts-ignore
 import { defineConfig } from 'vitepress'
 
 export const baseUrl = "/tkl-docs"
@@ -115,6 +116,7 @@ export default defineConfig({
                   { text: 'RPC Model', link: 'Model/RPCModel' },
                   { text: 'Trigger Model', link: 'Model/TriggerModel' },
                   { text: 'Template', link: 'Model/Template' },
+                  { text: 'TKLHelper', link: 'Model/tklHelper' },
                 ],
               },
               {
@@ -154,7 +156,8 @@ export default defineConfig({
                 text: 'EB',
                 items: [
                   { text: 'EB compiler', link: 'EB/EdgeBusCompiler' },
-                  { text: 'EB APP paras', link: 'EB/EdgeBusAppPara' }
+                  { text: 'EB APP paras', link: 'EB/EdgeBusAppPara' },
+                  { text: 'EBHelper', link: 'EB/EBHelper' },
                 ]
               }
             ]
@@ -228,6 +231,7 @@ export default defineConfig({
                   { text: 'RPC', link: 'Model/RPCModel' },
                   { text: '触发模型', link: 'Model/TriggerModel' },
                   { text: '模板', link: 'Model/Template' },
+                  { text: 'tklHelper', link: 'Model/tklHelper' },
                 ],
               },
               {
@@ -266,7 +270,8 @@ export default defineConfig({
                 text: 'EB',
                 items: [
                   { text: 'EB compiler', link: 'EB/EdgeBusCompiler' },
-                  { text: 'EB APP 参数', link: 'EB/EdgeBusAppPara' }
+                  { text: 'EB APP 参数', link: 'EB/EdgeBusAppPara' },
+                  { text: 'EBHelper', link: 'EB/EBHelper' },
                 ]
               }
             ]

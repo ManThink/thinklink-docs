@@ -24,7 +24,7 @@ TKL provides a series of powerful function modules, covering the entire life cyc
 + **RPC Model**: Support remote configuration equipment parameters and issue control instructions to realize remote management and maintenance of terminal equipment.
 + **Asset Model**: Aggregate data from multiple devices through the thing model to form a higher-dimensional "asset" view for comprehensive data analysis and business insight.
 + **Sub-device management**: Supports the management of sub-device data read by DTU or acquisition units through interfaces such as RS-485 and M-Bus as independent devices, realizing hierarchical device organization.
-+ **EB cloud compiler**: Compile and download EB(Embedded Business) code in the cloud, simplifying the process of developing and updating Embedded Business logic.
++ **EB cloud compiler**: Compile and download EB(EdgeBus) code in the cloud, simplifying the process of developing and updating Embedded Business logic.
 + **Alarm model**: You can set alarm rules based on multiple data types and implement alarm notifications through multiple channels (such as email and SMS) to ensure timely response to key events.
 + **Linkage model**: Realize the automatic linkage between devices, trigger corresponding actions according to preset conditions, and improve the intelligent level of the system.
 + **Scheduled Task**: Tasks can be set to execute periodically, calling RPC through periodic tasks to achieve automated, cyclical operations.
