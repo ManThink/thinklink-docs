@@ -141,6 +141,7 @@ export default defineConfig({
                 items: [
                   { text: 'ThinkLink protocol', link: 'Protocol/ThinkLinkProtocol' },
                   { text: 'AS protocol', link: 'Protocol/ASProtocol' },
+                  { text: 'Application protocol', link: 'Protocol/ApplicationProtocol' },
                 ],
               },
               {
@@ -158,6 +159,25 @@ export default defineConfig({
                   { text: 'EB compiler', link: 'EB/EdgeBusCompiler' },
                   { text: 'EB APP paras', link: 'EB/EdgeBusAppPara' },
                   { text: 'EBHelper', link: 'EB/EBHelper' },
+                ]
+              }
+            ]
+          },
+          {
+            items:[
+              {
+                text: 'Integration',
+                items: [
+                  { text: 'Gateway',
+                    items:[
+                    ] },
+                  { text: 'Device',
+                    items:[
+                      { text: 'WaterMeter',
+                        items:[
+                          {text:"KC21-21121-ZENNER",link:'Integration/Device/WaterMeter/KC21-21121-ZENNER'},
+                        ] },
+                    ] },
                 ]
               }
             ]
@@ -246,6 +266,7 @@ export default defineConfig({
                 items: [
                   { text: 'ThinkLink 协议', link: 'Protocol/ThinkLinkProtocol' },
                   { text: 'AS 协议', link: 'Protocol/ASProtocol' },
+                  { text: '应用层 协议', link: 'Protocol/ApplicationProtocol' },
                 ],
               },
               {
@@ -272,6 +293,25 @@ export default defineConfig({
                   { text: 'EB compiler', link: 'EB/EdgeBusCompiler' },
                   { text: 'EB APP 参数', link: 'EB/EdgeBusAppPara' },
                   { text: 'EBHelper', link: 'EB/EBHelper' },
+                ]
+              }
+            ]
+          },
+          {
+            items:[
+              {
+                text: '集成',
+                items: [
+                  { text: '网关',
+                    items:[
+                    ] },
+                  { text: '设备',
+                    items:[
+                      { text: '水表',
+                        items:[
+                          {text:"KC21-21121-ZENNER",link:'Integration/Device/WaterMeter/KC21-21121-ZENNER'},
+                        ] },
+                    ] },
                 ]
               }
             ]
