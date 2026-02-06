@@ -1,12 +1,45 @@
 // @ts-ignore
 import { defineConfig } from 'vitepress'
 
-export const baseUrl = "/tkl-docs"
+export const baseUrl = "/tkl-docs/"
+const siteUrl = 'https://think-link.net'
+const canonicalBase = `${siteUrl}${baseUrl.replace(/\/$/, '')}` // https://think-link.net/tkl-docs
 export default defineConfig({
   base: baseUrl,
   outDir: `.${baseUrl}`,
   title: 'ThinkLink',
   description: 'IOT platform with native LoRaWAN NS',
+  lastUpdated: true, // ✅ 有利于文档类站点（也能被主题显示）
+  cleanUrls: true,   // ✅ /xx/yy 而不是 /xx/yy.html（更利于 SEO）
+  head: [
+    // --- Basic ---
+    ['meta', { name: 'author', content: 'ThinkLink' }],
+    ['meta', { name: 'robots', content: 'index,follow' }],
+    ['link', { rel: 'canonical', href: `${canonicalBase}/` }],
+
+    // --- hreflang (多语言很关键) ---
+    ['link', { rel: 'alternate', hreflang: 'en', href: `${canonicalBase}/en/` }],
+    ['link', { rel: 'alternate', hreflang: 'zh-CN', href: `${canonicalBase}/zh/` }],
+    ['link', { rel: 'alternate', hreflang: 'x-default', href: `${canonicalBase}/en/` }],
+
+    // --- Open Graph ---
+    ['meta', { property: 'og:site_name', content: 'ThinkLink Docs' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: 'ThinkLink Documentation' }],
+    ['meta', { property: 'og:description', content: 'IoT platform with native LoRaWAN NS' }],
+    ['meta', { property: 'og:url', content: `${canonicalBase}/` }],
+    // ✅ 你可以放一张 1200x630 的分享图（建议放 public/og.png）
+    ['meta', { property: 'og:image', content: `${canonicalBase}/og.png` }],
+
+    // --- Twitter Card ---
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'ThinkLink Documentation' }],
+    ['meta', { name: 'twitter:description', content: 'IoT platform with native LoRaWAN NS' }],
+    ['meta', { name: 'twitter:image', content: `${canonicalBase}/og.png` }],
+
+    // ✅ 可选：站点图标
+    ['link', { rel: 'icon', href: `${baseUrl}favicon.ico` }],
+  ],
   // rewrites: {
   //   'en/:slug*': ':slug*'
   // },
@@ -43,6 +76,10 @@ export default defineConfig({
     search:{
       provider: 'local'
     },
+    outline: [2, 3],
+    lastUpdated:{
+      text:'Last updated'
+    } ,
     // nav: [
     //   { text: 'Home', link: '/' },
     //   { text: 'Deployment', link: '/en/QuickStart/Deployment/ThinkLinkDocker' },
