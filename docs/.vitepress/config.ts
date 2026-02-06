@@ -51,8 +51,6 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/en/' },
-          // 英文链接使用根路径 (因为有 rewrites 映射)
-          { text: 'Guide', link: '/en/QuickStart/Deployment/ThinkLinkDocker' }, 
         ],
       }
     },
@@ -63,8 +61,7 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首页', link: '/zh/' },
-          // 中文链接使用 /zh/ 前缀 (或使用相对路径，但绝对路径更清晰)
-          { text: '指南', link: '/zh/QuickStart/Deployment/ThinkLinkDocker' }, 
+          { text: '指南', link: '/zh/QuickStart/Deployment/ThinkLinkDocker' },
         ],
       }
     }, 
@@ -80,11 +77,6 @@ export default defineConfig({
     lastUpdated:{
       text:'Last updated'
     } ,
-    // nav: [
-    //   { text: 'Home', link: '/' },
-    //   { text: 'Deployment', link: '/en/QuickStart/Deployment/ThinkLinkDocker' },
-    // ],
-
     sidebar: {
       '/en/': {
         base: '/en/',

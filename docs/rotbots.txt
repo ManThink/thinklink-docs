@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://think-link.net/tkl-docs/sitemap.xml
