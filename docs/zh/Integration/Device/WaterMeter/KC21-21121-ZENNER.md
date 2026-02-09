@@ -82,10 +82,10 @@ KC21 的 RS485 A/B 需与 ZENNER 水表 A/B 对应连接，避免反接。
 选择 RPC：<font style="background-color:#D8DAD9;">[EB SET] easy para</font>
 
 #### 参数说明
-| 参数名 | 含义 | 说明 |
-| --- | --- | --- |
-| period | 抄表周期 | 单位：秒 |
-| addr | 水表 Modbus 地址 | RS485 从站地址 |
+| 参数名 | 含义 | 说明           |
+| --- | --- |--------------|
+| period | 抄表周期 | 单位：秒         |
+| addr | 水表 Modbus 地址 | RS485 从站地址 <br>如果用16进制那么就用0x开头<br>否则为十进制数字 |
 
 
 > 参数修改后，设备会自动保存并生效。

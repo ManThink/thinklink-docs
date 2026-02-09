@@ -50,7 +50,7 @@ export default defineConfig({
       link: '/en/',
       themeConfig: {
         nav: [
-          { text: 'Home', link: '/en/' },
+          { text: 'Home', link: 'https://think-link.net' },
         ],
       }
     },
@@ -60,8 +60,7 @@ export default defineConfig({
       link: '/zh/',
       themeConfig: {
         nav: [
-          { text: '首页', link: '/zh/' },
-          { text: '指南', link: '/zh/QuickStart/Deployment/ThinkLinkDocker' },
+          { text: '首页', link: 'https://think-link.net/zh/home-zh' },
         ],
       }
     }, 
@@ -188,6 +187,17 @@ export default defineConfig({
                   { text: 'EB compiler', link: 'EB/EdgeBusCompiler' },
                   { text: 'EB APP paras', link: 'EB/EdgeBusAppPara' },
                   { text: 'EBHelper', link: 'EB/EBHelper' },
+                ]
+              }
+            ]
+          },{
+            items:[
+              {
+                text: 'AN',
+                items: [
+                  { text: 'EBHelper Codes', link: 'AN/EBHelperCodes' },
+                  { text: 'tklHelper Codes', link: 'AN/tklHelperCodes' },
+                  { text: 'BatchDataManagementGuide', link: 'AN/BatchDataManagementGuide' },
                 ]
               }
             ]
@@ -322,6 +332,18 @@ export default defineConfig({
                   { text: 'EB compiler', link: 'EB/EdgeBusCompiler' },
                   { text: 'EB APP 参数', link: 'EB/EdgeBusAppPara' },
                   { text: 'EBHelper', link: 'EB/EBHelper' },
+                ]
+              }
+            ]
+          },
+          {
+            items:[
+              {
+                text: 'AN',
+                items: [
+                  { text: 'EBHelper Codes', link: 'AN/EBHelperCodes' },
+                  { text: 'tklHelper Codes', link: 'AN/tklHelperCodes' },
+                  { text: 'BatchDataManagementGuide', link: 'AN/BatchDataManagementGuide' },
                 ]
               }
             ]

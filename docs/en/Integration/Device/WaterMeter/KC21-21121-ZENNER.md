@@ -105,10 +105,10 @@ Select RPC:
 ```
 
 #### Parameters
-| Parameter | Description |
-| --- | --- |
-| period | Meter reading interval (seconds) |
-| addr | Modbus slave address of the water meter |
+| Parameter | Description                                                                              |
+| --- |------------------------------------------------------------------------------------------|
+| period | Meter reading interval (seconds)                                                         |
+| addr | Modbus slave address of the water meter<br>start with 0x if hex type<br>otherwise is DEC |
 
 
 ---
