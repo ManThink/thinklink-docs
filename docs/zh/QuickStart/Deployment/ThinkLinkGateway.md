@@ -137,9 +137,3 @@ ThinkLink 支持两种应用数据，一种是LoRaWAN NS解密后的原始数据
 <!-- 这是一张图片，ocr 内容为：PLAINTEXT RECEIVED ALL PUBLISHED NEW SUBSCRIPTION /V32/MTFAC/U..... QOS 0 TOPIC://V32/MTFAC/UP/DATA/3F53012A0000050E5 QOS:0 {"GEOINFO": {"LONGITUDE":108.86375,"LATITUDE":34.19604,"ALTITUDE ":0,"ACCURACY":50,"TYPE":"GW:WIFI"},"GWRX": [{"EUI":"5A53012501030027","TIME":"2025-08- 28T02:46:26.8466746Z","TMMS":0,"TMST":2572447664,"FT IME":0,"CHAN":0,"RFCH":0,"RSSI":-62,"LSNR":8.8]L,"IF ":"LORAWAN","MOTETX": ["FREQ":470.3,"MODU":"LORA","DATR":"SF9BW125","CODR" :"4/5","MACCMD":"MACACACK":"MOTEEUI,"MOTEEUI":"3F53012A0 00050E5","TOKEN":3,"TYPE":"DATA","USERDATA": "CLASS":"CLASSA","CONFIRMED":FALSE,"SEQNO":4001,"PO RT":3,"PAYLOAD":"MTIZNA-"},"VERSION":"3.0"} 2025-08-28 10:46:26:432 -->
 ![](./assert/1756352075976-f874d583-9ac1-42f5-8785-1846eecccb26.png)
 
-### 1.7.2. 更多信息
-如需了解更多产品信息或技术支持，请访问：
-
-🔗 [门思科技官网](https://www.manthink.cn)  
-🔗 [ThinkLink LoRaWAN平台](https://thinklink.manthink.cn)
-

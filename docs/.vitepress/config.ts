@@ -343,7 +343,7 @@ export default defineConfig({
                 items: [
                   { text: 'EBHelper Codes', link: 'AN/EBHelperCodes' },
                   { text: 'tklHelper Codes', link: 'AN/tklHelperCodes' },
-                  { text: 'BatchDataManagementGuide', link: 'AN/BatchDataManagementGuide' },
+                  { text: '批量操作', link: 'AN/BatchDataManagementGuide' },
                 ]
               }
             ]
