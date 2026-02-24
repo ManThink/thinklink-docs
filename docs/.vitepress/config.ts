@@ -7,6 +7,9 @@ const canonicalBase = `${siteUrl}${baseUrl.replace(/\/$/, '')}` // https://think
 export default defineConfig({
   base: baseUrl,
   outDir: `.${baseUrl}`,
+  markdown: {
+    math: true, // ← 关键：开启数学解析（v1.0+ 默认 true，但显式声明更稳妥）
+  },
   title: 'ThinkLink',
   description: 'IOT platform with native LoRaWAN NS',
   lastUpdated: true, // ✅ 有利于文档类站点（也能被主题显示）
@@ -49,6 +52,13 @@ export default defineConfig({
       lang: 'en',
       link: '/en/',
       themeConfig: {
+        lastUpdated: { // 可选：自定义文案和格式（仅影响显示，不改变数据源）
+          text: 'lastUpdated',
+          formatOptions: {
+            dateStyle: 'short',
+            timeStyle: 'medium'
+          }
+        },
         nav: [
           { text: 'Home', link: 'https://think-link.net' },
         ],
@@ -59,6 +69,13 @@ export default defineConfig({
       lang: 'zh-CN',
       link: '/zh/',
       themeConfig: {
+        lastUpdated: { // 可选：自定义文案和格式（仅影响显示，不改变数据源）
+          text: '最后更新',
+          formatOptions: {
+            dateStyle: 'short',
+            timeStyle: 'medium'
+          }
+        },
         nav: [
           { text: '首页', link: 'https://think-link.net/zh/home-zh' },
         ],
@@ -198,6 +215,7 @@ export default defineConfig({
                   { text: 'EBHelper Codes', link: 'AN/EBHelperCodes' },
                   { text: 'tklHelper Codes', link: 'AN/tklHelperCodes' },
                   { text: 'BatchDataManagementGuide', link: 'AN/BatchDataManagementGuide' },
+                  { text: '[AN-26022301] DTU Power Consumption Calculation Guide', link: 'AN/AN-26022301 DTU Power Consumption Calculation Guide' },
                 ]
               }
             ]
@@ -341,9 +359,11 @@ export default defineConfig({
               {
                 text: 'AN',
                 items: [
-                  { text: 'EBHelper Codes', link: 'AN/EBHelperCodes' },
-                  { text: 'tklHelper Codes', link: 'AN/tklHelperCodes' },
+                  { text: 'EBHelper 源代码', link: 'AN/EBHelperCodes' },
+                  { text: 'tklHelper 源代码', link: 'AN/tklHelperCodes' },
                   { text: '批量操作', link: 'AN/BatchDataManagementGuide' },
+                  { text: '[AN-26022301] DTU功耗计算', link: 'AN/AN-26022301 DTU Power Consumption Calculation Guide' },
+
                 ]
               }
             ]
