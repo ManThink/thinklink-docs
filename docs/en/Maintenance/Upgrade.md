@@ -1,5 +1,5 @@
 # 1. Upgrade
-The upgrade of ThinkLink consists of two parts: gateway upgrade and device upgrade, both involving the gateways and devices of ManThink  The firmware for gateway upgrades is managed by ManThink Technology, and users can choose which firmware version to upgrade to. The device firmware is based on EB firmware, and ManThink's DTU and sensors are all built on EB code, making them upgradable. For EB encoding methods, please refer to [[EN] AN-25100101 EB compiler SDK instructions](https://mensikeji.yuque.com/staff-zesscp/gqdw7f/sw2h63yynws3vcn0?singleDoc#) 
+The upgrade of ThinkLink consists of two parts: gateway upgrade and device upgrade, both involving the gateways and devices of ManThink  The firmware for gateway upgrades is managed by ManThink Technology, and users can choose which firmware version to upgrade to. The device firmware is based on EB firmware, and ManThink's DTU and sensors are all built on EB code, making them upgradable. For EB encoding methods, please refer to [EB compiler SDK instructions](../EB/EdgeBusCompiler.md)
 
 After compilation, a file with the suffix `.obin` is generated, which serves as the upgrade firmware for devices.
 

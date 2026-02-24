@@ -1,5 +1,5 @@
 # 1. 升级
-ThinkLink 的升级分为网关的升级和设备的升级两部分内容，都是升级门思科技的网关和设备。其中网关的升级固件由门思科技来管理，用户可以选择升级到哪个版本的固件。设备的固件是基于EB的固件，门思科技的DTU和传感器都是基于EB的代码，可进行升级，EB的编码方式参考 [[CN] AN-25100101 EB compiler SDK使用说明](https://mensikeji.yuque.com/staff-zesscp/gqdw7f/trz8i5b7iddrug10?singleDoc#) 
+ThinkLink 的升级分为网关的升级和设备的升级两部分内容，都是升级门思科技的网关和设备。其中网关的升级固件由门思科技来管理，用户可以选择升级到哪个版本的固件。设备的固件是基于EB的固件，门思科技的DTU和传感器都是基于EB的代码，可进行升级，EB的编码方式参考 [EB compiler SDK 使用说明](../EB/EdgeBusCompiler.md) 
 
 编译完成后，生成尾缀为obin的文件，为设备的升级固件。
 

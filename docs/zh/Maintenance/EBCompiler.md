@@ -2,7 +2,7 @@
 <!-- 这是一张图片，ocr 内容为：TKL THINKLINK DEMO 金首页 EB编译 仪表板 请输入 来源: 名称: 重置 请选择 查询 展开 目应用数据 网络数据 工 章 +新增 四运维管理 备注 名称 来源 ID 操作 品设备管理 自定义 123 缩辑 41168946207920133 CESHI1 品网关管理 34202123474309125 编辑 自定义 CJ188T BACNET 1 昭仪表板管理 缩辑 系统 EXAMPLE 升级 第1-3条/总共3条 中EB编译 -->
 ![](./assets/1765593352286-706ff914-c33d-4501-9a61-a3029b046639.png)
 
-EB（EdgeBus）是一款运行在低功耗MCU上的虚拟机，EB是基于通过TypeScript编程可实现复杂传感器对接业务。EB的详细介绍见 [[CN] AN-25100101 EB compiler SDK使用说明](https://mensikeji.yuque.com/staff-zesscp/gqdw7f/trz8i5b7iddrug10?singleDoc#) 。
+EB（EdgeBus）是一款运行在低功耗MCU上的虚拟机，EB是基于通过TypeScript编程可实现复杂传感器对接业务。EB的详细介绍见  [EB compiler SDK 使用说明](../EB/EdgeBusCompiler.md) 。
 
 ThinkLink 提供了EB的云编译平台，用户输入TypeScript代码后，即可实现在线编译成obin文件用于设备升级。
 
