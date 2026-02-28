@@ -4,6 +4,6 @@ layout: false
 
 <script>
 if (typeof window !== 'undefined') {
-  window.location.replace('/tkl-docs/en/')
+  window.location.replace('/docs/en/')
 }
 </script>

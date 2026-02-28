@@ -137,7 +137,7 @@ Select RPC:
 ```
 
 #### Protocol Reference
-+ [http://think-link.net/tkl-docs/zh/Protocol/ThinkLinkProtocol.html](http://think-link.net/tkl-docs/zh/Protocol/ThinkLinkProtocol.html)
++ [http://think-link.net/docs/zh/Protocol/ThinkLinkProtocol.html](http://think-link.net/docs/zh/Protocol/ThinkLinkProtocol.html)
 
 ---
 

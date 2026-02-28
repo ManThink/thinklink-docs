@@ -117,7 +117,7 @@ KC21 的 RS485 A/B 需与 ZENNER 水表 A/B 对应连接，避免反接。
 ```
 
 #### 协议说明文档
-+ [http://think-link.net/tkl-docs/zh/Protocol/ThinkLinkProtocol.html](http://think-link.net/tkl-docs/zh/Protocol/ThinkLinkProtocol.html)
++ [http://think-link.net/docs/zh/Protocol/ThinkLinkProtocol.html](http://think-link.net/docs/zh/Protocol/ThinkLinkProtocol.html)
 
 ---
 

@@ -1,9 +1,9 @@
 // @ts-ignore
 import { defineConfig } from 'vitepress'
 
-export const baseUrl = "/tkl-docs/"
+export const baseUrl = "/docs/"
 const siteUrl = 'https://think-link.net'
-const canonicalBase = `${siteUrl}${baseUrl.replace(/\/$/, '')}` // https://think-link.net/tkl-docs
+const canonicalBase = `${siteUrl}${baseUrl.replace(/\/$/, '')}` // https://think-link.net/docs
 export default defineConfig({
   base: baseUrl,
   outDir: `.${baseUrl}`,

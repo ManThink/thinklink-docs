@@ -2,8 +2,8 @@ import { SitemapStream, streamToPromise } from 'sitemap'
 import { createWriteStream, readdirSync, statSync } from 'fs'
 import { resolve } from 'path'
 
-const SITE_URL = 'https://think-link.net/tkl-docs'
-const DIST_DIR = resolve('docs/tkl-docs')
+const SITE_URL = 'https://think-link.net/docs'
+const DIST_DIR = resolve('docs/docs')
 
 function walk(dir, files = []) {
     for (const file of readdirSync(dir)) {
