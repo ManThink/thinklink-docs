@@ -1,100 +1,82 @@
-# 1. MQTT Forwarder
-The MQTT Forwarder is a middleware solution designed to enable protocol integration with third-party application platforms. It provides flexible message processing through customizable JavaScript scripting, supporting:
+# MQTT Forwarder
 
-+ Cross-platform message routing (source → target broker)
-+ Dynamic Topic redirection
-+ Message content format transformation
+The MQTT Forwarder is a middleware solution designed to enable protocol integration between third-party application platforms and ThinkLink. It achieves this through flexible JavaScript scripting, supporting:
 
-## 1.1. **Configuration Workflow**
-**Step 1: Establish Broker Connections**
+- Cross-platform message routing (`source → target broker`)
+- Dynamic topic redirection
+- Message payload format transformation
 
-Prepare the necessary authentication details for both source and target brokers.
+## 1. Configuration Workflow
 
-1.**Authentication Preparation:**
-- Username / Password
-- TLS Certificate (required if encrypted connection is used)
-2.**Connection Type Selection:**
-- **Standard MQTT Broker:** Full connection details must be provided.
-- **TKL Ecosystem Data:**
-    * **AS Type:** Retrieves LoRaWAN application-layer data after parsing.  
-Subscription topic permission: `/v32/[organization ID]/as/#`
-    * **ThinkLink Type:** Retrieves data parsed by ThinkLink’s Thing Model.  
-Subscription topic: `/v32/[organization ID]/tkl/#`
+### 1.1 Step 1: Establish Broker Connections
 
->**Note**: At least two broker connections must be established — one as the **source** and one as the **target**.
+1. **Prepare broker credentials**:
+   - **ThinkLink Broker credentials**: Retrieve from *System Configuration → Server Configuration → Internal MQTT*. Users may modify these credentials as needed.
+   - **Third-party broker credentials**: Obtain from your broker provider. Required information includes:
+     - Username/password
+     - TLS certificate (if encrypted connection is required)
 
-**Step 2: Configure Forwarding Rules**
-> 1.**Access Configuration Interface:**  
-[Advanced Features] → [Forwarder] → [Add New]
-> 2.**Basic Settings:**
-- Name the forwarder instance
-- Enable/Disable the forwarder function
-> 3.**Endpoint Configuration:**
-- **Source Broker** (select from dropdown; create new if not available)
-- **Target Broker** (select from dropdown; create new if not available)
-- **Subscription Topic** (wildcards supported, e.g., `+/temp/+`)
+2. **Select connection type**:
+   - `Customize`: For third-party brokers
+   - `ThinkLink`: Subscribes to topics containing Thing Model–parsed data (e.g., `/v32/[tenant]/tkl/up/telemetry/#`)
+   - `AS`: Subscribes to raw, unprocessed data (e.g., `/v32/[tenant]/as/#`)
 
-## 1.2. **Optional: Protocol Conversion Script**
-Use a custom JS script to transform message structure during forwarding. Messages can be filtered, remapped, or dropped based on logic.
+> ⚠️ **Note 1**: At least **two broker connections** must be configured — one as the *source* and one as the *target*.
+> <br>⚠️ **Note 2**: `[tenant]` refers to the organization account of the ThinkLink user.
+ 
+![img](./asserts/01.png)
+
+### 1.2 Step 2: Configure Forwarding Rules
+
+
+1. **Access the configuration interface**:
+   `[Advanced Features] → [Forwarder] → [Add New]`
+
+2. **Basic Settings**:
+   - Name the forwarder instance
+   - Enable/disable the forwarder via toggle switch
+
+3. **Endpoint Configuration**:
+   - `Source Broker`: Select from dropdown (create new if not listed)
+   - `Target Broker`: Select from dropdown (create new if not listed)
+   - `Subscription Topic`: Supports MQTT wildcards (e.g., `+/sensor/+/telemetry`)
+
+![img](./asserts/02.png)
+
+### 1.3 Optional: Protocol Transformation Script
+
+If no custom script is provided, the forwarder relays messages *unchanged* — preserving both original topic and payload format.
 
 ```javascript
-/**
- * Message transformation function
- * @param {Object} input - Original message
- * @param {string} input.topic - Source topic
- * @param {Object} input.msg - Message payload (JSON)
- * @returns {Object|null} Return null to discard the message
- */
+// Example: Renaming telemetry fields 'T' → 'temperature', 'H' → 'humidity' to comply with another protocol
 function forwardScript({topic, msg}) {
-  // Example: Filter and transform device heartbeat messages
-  if (!msg?.uheart?.EUI || msg?.uheart?.action != 'heart') return null;
-
-  const VALID_EUIS = ["7a53012a00000070", "7a53012a00000331"];
-  const eui = msg.uheart.EUI;
-  if (!VALID_EUIS.includes(eui)) return null;
-
-  // Construct transformed message
+  if (!msg?.telemetry_data) return;
+  let content = {};
+  content.temperature = msg.telemetry_data?.T;
+  content.humidity = msg.telemetry_data?.H;
   return {
-    topic: `/v32/test/my/up/gw/${eui}`,  // Template variables supported
-    msg: {
-      version: "3.0",
-      eui: eui,
-      action: "heart",
-      data: {  // Field mapping
-        validIP: msg.uheart?.IP,
-        txPackets: msg.uheart?.TxPackets,
-        rxPackets: msg.uheart?.RxPackets,
-        deviceHandle: msg.uheart?.deviceHandle,
-        hwVersion: msg.uheart?.hardwareVersion,
-        fwVersion: msg.uheart?.fimewareVersion,
-        netType: msg.uheart?.netType
-      }
-    }
+    topic: `/v32/test/my/up/gw/${eui}`,
+    option: {
+      retain: false
+    },
+    msg: content
   };
 }
 ```
 
-### 1.2.1. **Input Parameters**
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `topic` | string | The original MQTT topic received |
-| `msg` | Object | The message body in JSON format |
+#### Input Parameters
 
+| Parameter | Type     | Description                            |
+| --------- | -------- | -------------------------------------- |
+| `topic`   | `string` | The original subscribed MQTT topic     |
+| `msg`     | `Object` | Received message payload (JSON format) |
 
----
+#### Return Value
 
-### 1.2.2. **Return Value**
-Returns a new message object to be forwarded, or `null` to discard the message.
+Return a new message object (or `null` to discard the message):
 
-| Field  | Type | Description |
-|--------| --- | --- |
-| `topic` | string | Target topic; supports dynamic placeholders (e.g., `${msg.deviceId}`) |
-| `msg`  | Object | Transformed message content, compliant with target protocol requirements |
-| `option` | object | if retain message， then set `option:{retain:true}` |
-
-
-✅ **Best Practices:**
-
-+ Always validate incoming message structure before transformation.
-+ Use descriptive names for forwarder instances to simplify management.
-+ Leverage wildcards and template variables for scalable rule definitions.
+| Field    | Type     | Description                                                  |
+| -------- | -------- | ------------------------------------------------------------ |
+| `topic`  | `string` | **Target topic** — supports dynamic variable substitution using `${variable}` (e.g., `${msg.deviceId}`) |
+| `msg`    | `Object` | Transformed message payload (must conform to the target protocol specification) |
+| `option` | `object` | Optional configuration — e.g., `{ retain: true }` to publish as a retained message |
