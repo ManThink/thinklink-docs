@@ -3,7 +3,7 @@ import { createWriteStream, readdirSync, statSync } from 'fs'
 import { resolve } from 'path'
 
 const SITE_URL = 'https://think-link.net/docs'
-const DIST_DIR = resolve('docs/docs')
+const DIST_DIR = resolve('docs')
 
 function walk(dir, files = []) {
     for (const file of readdirSync(dir)) {
